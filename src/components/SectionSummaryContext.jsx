@@ -10,11 +10,8 @@ const SectionSummaryContext = () => {
     // console.log(summary);
 
     return (
-        <div>
-            <p>{article.title}</p>
-            <p>Summary:</p>
-            <p>{summary}</p>
-        </div>
+        <div>  {summary} </div>
+
     )
 }
 
