@@ -3,21 +3,18 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import { getNYTArticles } from "./fetch";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuLink, NavigationMenuTrigger } from "@radix-ui/react-navigation-menu";
 import './Section.css';
-import main from './OpenAi'
+// import main from './OpenAi';
 
-
-
- export const SummaryContext = createContext(null)
+export const SummaryContext = createContext(null);
 //  const navigate = useNavigate();
 const Section = ({ sections }) => {
-     const [summary, setSummary] = useState([])
+     const [summary, setSummary] = useState('');
     const [articles, setArticles] = useState([]);
     const { id } = useParams();
+
     useEffect(() => {
-        
         getNYTArticles(sections[id]).then((results) => {
             setArticles(results);
-        
         }).catch((err) => console.error(err));
     }, []);
 
