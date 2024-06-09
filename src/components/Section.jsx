@@ -29,17 +29,8 @@ const Section = ({ sections }) => {
      }
 
     return (
-         <SummaryContext.Provider >
+         <SummaryContext.Provider value={{}}>
         <div>
-            <NavigationMenu>
-                <NavigationMenuList>
-                    <NavigationMenuItem>
-                        <NavigationMenuLink>
-                        <Link className='home-link' to={'/'}>Home</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-                </NavigationMenuList>
-            </NavigationMenu>
             <h1>{sections[id]}</h1>
             {articles.length > 0 && articles.map(article =>
                 <li key={article.slug_name}>
