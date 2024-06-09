@@ -39,17 +39,6 @@ const Section = ({ sections }) => {
     > 
     {(summary) ? <div>{summary}</div> : (
         <div>
-            <NavigationMenu>
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                <NavigationMenuLink>
-                    <Link className="home-link" to={"/"}>
-                    Home
-                    </Link>
-                </NavigationMenuLink>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-            </NavigationMenu>
             <h1>{sections[id]}</h1>
             {articles.length > 0 &&
             articles.map((article) => (
