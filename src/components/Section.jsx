@@ -36,9 +36,11 @@ const Section = ({ sections }) => {
                 <li key={article.slug_name}>
                     <Link to={article.url} target="_blank">{article.title}</Link>
                     <p>{article.abstract}</p>
-                    <button onClick={()=> handleClick(article)}>Summarize for 8th Graders + Below</button>
-                    <button>Summarize for High Schoolers</button>
-                    <button>Summarize for Adults</button>
+                    <button onClick={()=> handleClick(article)}>Summarize (8th Grade)</button>
+                    <button>Summarize (High School)</button>
+                    <button>Summarize (Adults)</button>
+                    <br />
+                    <br />
                 </li>)}
         </div>
          </SummaryContext.Provider> 
