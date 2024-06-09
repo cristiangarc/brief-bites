@@ -33,45 +33,41 @@ const Section = ({ sections }) => {
      setSummary(response)
   };
 
-  console.log(summary)
-
   return (
     <SummaryContext.Provider
       value={{ summary, setSummary, articles, setArticles }}
     > 
-    {
-            (summary) ? <div>{summary}</div> : (
-                <div>
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuLink>
-                          <Link className="home-link" to={"/"}>
-                            Home
-                          </Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                  <h1>{sections[id]}</h1>
-                  {articles.length > 0 &&
-                    articles.map((article) => (
-                      <li key={article.slug_name}>
-                        <Link to={article.url} target="_blank">
-                          {article.title}
-                        </Link>
-                        <p>{article.abstract}</p>
-                        <button onClick={() => handleClick(article)}>
-                          Summarize for 8th Graders + Below
-                        </button>
-                        <button>Summarize for High Schoolers</button>
-                        <button>Summarize for Adults</button>
-                      </li>
-                    ))}
-                </div>
-                )  
+    {(summary) ? <div>{summary}</div> : (
+        <div>
+            <NavigationMenu>
+            <NavigationMenuList>
+                <NavigationMenuItem>
+                <NavigationMenuLink>
+                    <Link className="home-link" to={"/"}>
+                    Home
+                    </Link>
+                </NavigationMenuLink>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+            </NavigationMenu>
+            <h1>{sections[id]}</h1>
+            {articles.length > 0 &&
+            articles.map((article) => (
+                <li key={article.slug_name}>
+                <Link to={article.url} target="_blank">
+                    {article.title}
+                </Link>
+                <p>{article.abstract}</p>
+                <button onClick={() => handleClick(article)}>
+                    Summarize for 8th Graders + Below
+                </button>
+                <button>Summarize for High Schoolers</button>
+                <button>Summarize for Adults</button>
+                </li>
+            ))}
+        </div>
+        )
     }
-
     </SummaryContext.Provider>
   );
 };
