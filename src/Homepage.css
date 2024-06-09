@@ -1,3 +1,8 @@
+div.homepage {
+    background-color: green;
+    opacity: 0.85;
+}
+
 Link.section-link {
     display: block;
 }
