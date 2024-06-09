@@ -3,14 +3,14 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import { getNYTArticles } from "./fetch";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuLink, NavigationMenuTrigger } from "@radix-ui/react-navigation-menu";
 import './Section.css';
-// import main from './OpenAi';
+import main from './OpenAi';
 
 export const SummaryContext = createContext(null);
-//  const navigate = useNavigate();
+
 const Section = ({ sections }) => {
-     const [summary, setSummary] = useState('');
     const [articles, setArticles] = useState([]);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getNYTArticles(sections[id]).then((results) => {
@@ -18,13 +18,19 @@ const Section = ({ sections }) => {
         }).catch((err) => console.error(err));
     }, []);
 
-    // const handleClick = () => {
-    //     main().then((response => setSummary(response)))
-    //      navigate('/sections/summary')
-    //  }
+    const handleClick = (art) => {
+        main()
+        .then(response => {
+            navigate('/sections/summary', { state: {
+                article: art,
+                summary: response,
+                
+            } } );
+        })
+     }
 
     return (
-         <SummaryContext.Provider value = {{summary, setSummary}}>
+         <SummaryContext.Provider >
         <div>
             <NavigationMenu>
                 <NavigationMenuList>
@@ -40,7 +46,7 @@ const Section = ({ sections }) => {
                 <li key={article.slug_name}>
                     <Link to={article.url} target="_blank">{article.title}</Link>
                     <p>{article.abstract}</p>
-                    <button onClick={()=> handleClick()}>Summarize for 8th Graders + Below</button>
+                    <button onClick={()=> handleClick(article)}>Summarize for 8th Graders + Below</button>
                     <button>Summarize for High Schoolers</button>
                     <button>Summarize for Adults</button>
                 </li>)}

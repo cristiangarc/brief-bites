@@ -13,7 +13,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Homepage sections={sections}/>} />
       <Route path='/sections/:id' element={<Section sections={sections}/>} />
-      {/* <Route path='/sections/summary' element={<SectionSummaryContext sections={sections}/>}/> */}
+      <Route path='/sections/summary' element={<SectionSummaryContext sections={sections}/>}/>
     </Routes>
   );
 }

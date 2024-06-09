@@ -1,5 +1,4 @@
 const openAiKey = import.meta.env.VITE_OPENAI_API_KEY;
-console.log(openAiKey)
 
 // const openAiKey = import.meta.env.OPENAI_API_KEY
 import OpenAI from "openai"
@@ -17,7 +16,7 @@ const openai = new OpenAI({apiKey:openAiKey, dangerouslyAllowBrowser: true});
             model: 'gpt-3.5-turbo',
     });
 
-    console.log(completion.choices[0].message.content);
+    // console.log(completion.choices[0].message.content);
     return completion.choices[0].message.content;
     
 }

@@ -1,11 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SummaryContext } from "./Section";
+import { useLocation } from "react-router-dom";
 
 const SectionSummaryContext = () => {
-    const { summary } = useContext(SummaryContext)
+    const location = useLocation();
+    const data = location.state;
+    const { article, summary } = data;
+    console.log(article, summary);
+    // console.log(summary);
 
     return (
-        <div>Hello {summary}</div>
+        <div>
+            <p>{article.title}</p>
+            <p>Summary:</p>
+            <p>{summary}</p>
+        </div>
     )
 }
 
