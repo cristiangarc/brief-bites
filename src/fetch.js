@@ -18,3 +18,9 @@ export function createArticle (article, moreOptions = {}) {
       return response.json();
     });
   }
+
+export function getArticleSummary(id) {
+  return fetch(`${URL}/api/summaries/${id}`).then((response) => {
+    return response.json();
+  });
+}
