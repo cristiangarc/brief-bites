@@ -4,7 +4,7 @@ import OpenAI from "openai";
 
 const openAiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
-const openai = new OpenAI({ apiKey: openAiKey, dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: openAiKey });
 
 
 export default async function main({abstract}) {
