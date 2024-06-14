@@ -27,7 +27,9 @@ const Section = ({ sections }) => {
     <SummaryContext.Provider
       value={{ summary, setSummary, articles, setArticles }}
     > 
-    {(summary) ? <div>{summary}</div> : (
+    {(summary) ? (<div>
+        <p>{summary}</p>
+        </div>) : (
         <div>
             <h1>{sections[id]}</h1>
             {articles.length > 0 &&
