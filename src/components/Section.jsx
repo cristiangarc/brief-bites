@@ -2,7 +2,7 @@ import { useState, useEffect, createContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { getNYTArticles } from "./fetch";
 import "./Section.css";
-import main from "./OpenAi";
+// import main from "./OpenAi";
 
 export const SummaryContext = createContext(null);
 
@@ -19,8 +19,12 @@ const Section = ({ sections }) => {
   }, []);
 
   const handleClick = async (articles) => {
-    const response = await main(articles)
-     setSummary(response)
+    try {
+      const response = await main(articles);
+      setSummary(response)
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
