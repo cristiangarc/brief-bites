@@ -16,8 +16,21 @@ div.sections {
     grid-template-columns: repeat(3, 1fr);
 }
 
+br.hidden {
+    display: none;
+}
+
 @media (max-width: 780px) {
+    label.search-title {
+        display: block;
+        margin: 0 auto;
+    }
+
     div.sections {
         grid-template-columns: repeat(2, 1fr);
-    }   
+    }
+
+    br.hidden {
+        display: block;
+    }
 }

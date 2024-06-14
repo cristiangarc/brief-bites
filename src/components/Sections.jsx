@@ -31,6 +31,7 @@ const Sections = ({ sections }) => {
                     onChange={handleTextChange}
                 />
             </label>
+            <br className="hidden" />
             <div className="sections">
                 {currentSections.length >0 && currentSections.map((section) =>
                     <section key={section}>
