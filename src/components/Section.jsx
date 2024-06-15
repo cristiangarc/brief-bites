@@ -25,7 +25,6 @@ const Section = ({ sections }) => {
       // fetch the summary from the newly created article from the database
       const summary = await getArticleSummary(postedArticle.id);
       setSummary(summary);
-      console.log('summary:', summary);
     } catch (err) {
       console.error(err);
     }
