@@ -2,25 +2,36 @@ const URL = import.meta.env.VITE_BASE_URL;
 
 // Article/Get one
 export function getOneArticle(id) {
-    return fetch(`${URL}/api/articles/${id}`, { credentials: "include" }).then((response) => response.json());
+    return fetch(`${URL}/api/articles/${id}`, { 'Access-Control-Allow-Origin': 'http://localhost:3000' })
+    .then((response) => response.json());
 }
 
-// Create
+// Create an article
 export function createArticle (article, moreOptions = {}) {
-    const options = {
-      ...moreOptions,
-      method: "POST",
-      body: JSON.stringify({
-        article: article,
-      }),
-    };
-    return fetch(`${URL}/api/articles/`, options).then((response) => {
-      return response.json();
-    });
-  }
+  console.log(article);
+  const options = {
+    ...moreOptions,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      // "CSRF-Token": csrfToken, // Include CSRF token in request headers
+    },
+    body: JSON.stringify({
+      title: article.title,
+      abstract: article.abstract
+    }),
+    // 'Access-Control-Allow-Origin': 'http://localhost:3000'
+  };
+  return fetch(`${URL}/api/articles/`, options)
+  .then((response) => {
+    return response.json();
+  });
+}
 
+// get an article summary
 export function getArticleSummary(id) {
-  return fetch(`${URL}/api/summaries/${id}`).then((response) => {
+  return fetch(`${URL}/api/summaries/${id}`)
+  .then((response) => {
     return response.json();
   });
 }
