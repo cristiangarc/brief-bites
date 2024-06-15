@@ -8,7 +8,6 @@ export function getOneArticle(id) {
 
 // Create an article
 export function createArticle (article, moreOptions = {}) {
-  console.log(article);
   const options = {
     ...moreOptions,
     method: "POST",
