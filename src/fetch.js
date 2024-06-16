@@ -15,10 +15,7 @@ export function createArticle (article, moreOptions = {}) {
       "Content-Type": "application/json",
       // "CSRF-Token": csrfToken, // Include CSRF token in request headers
     },
-    body: JSON.stringify({
-      title: article.title,
-      abstract: article.abstract
-    }),
+    body: JSON.stringify(article),
     // 'Access-Control-Allow-Origin': 'http://localhost:3000'
   };
   return fetch(`${URL}/api/articles/`, options)
