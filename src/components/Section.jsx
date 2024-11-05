@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getNYTArticles } from "../api/nytimes-api";
+import { getNYTArticles } from "../api/currents-api";
 import "./Section.css";
 import { createArticle, getArticleSummary } from "../fetch";
 
